@@ -45,7 +45,7 @@ a {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  padding: 16px 0;
+  padding: 22px 0;
 }
 
 .topbar__brand {
@@ -55,7 +55,7 @@ a {
 }
 
 .topbar__logo {
-  width: clamp(120px, 18vw, 170px);
+  width: clamp(140px, 20vw, 200px);
   height: auto;
 }
 
@@ -63,6 +63,7 @@ a {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  font-size: 1.05rem;
 }
 
 .topbar__tag {
@@ -226,6 +227,19 @@ a {
   color: var(--ink);
 }
 
+.card,
+.gallery__item,
+.contact__cta {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover,
+.gallery__item:hover,
+.contact__cta:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 55px rgba(18, 23, 30, 0.18);
+}
+
 .contact {
   display: grid;
   gap: 24px;
@@ -280,6 +294,90 @@ a {
 .button:hover {
   transform: translateY(-1px);
   box-shadow: 0 14px 30px rgba(18, 23, 30, 0.25);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes softPop {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.topbar {
+  animation: fadeUp 0.6s ease both;
+}
+
+.hero__content > * {
+  animation: fadeUp 0.7s ease both;
+}
+
+.hero__content > *:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.hero__content > *:nth-child(2) {
+  animation-delay: 0.12s;
+}
+
+.hero__content > *:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.card,
+.gallery__item,
+.contact__cta {
+  animation: softPop 0.6s ease both;
+}
+
+.card:nth-child(2),
+.gallery__item:nth-child(2) {
+  animation-delay: 0.05s;
+}
+
+.card:nth-child(3),
+.gallery__item:nth-child(3) {
+  animation-delay: 0.1s;
+}
+
+.card:nth-child(4),
+.gallery__item:nth-child(4) {
+  animation-delay: 0.15s;
+}
+
+.gallery__item:nth-child(5) {
+  animation-delay: 0.2s;
+}
+
+.gallery__item:nth-child(6) {
+  animation-delay: 0.25s;
+}
+
+.contact__cta {
+  animation-delay: 0.12s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
 }
 
 .button--ghost {
